@@ -1,4 +1,7 @@
 Foobar::Application.routes.draw do
+  get 'about' => 'pages#about' # Set an about page and set it to pages/about within the folder structure
+  root :to => 'pages#home' # Set route
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
