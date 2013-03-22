@@ -1,12 +1,13 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }, class: 'form-horizontal') do |f| %>
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }, class: 'form-horizontal') do |f| %> 
+<!-- We are defining the form here -->
   
 	<%= f.error_notification %> <!-- Any error notifications -->
-	
+	<%= f.input :name %>
 	<%= f.input :email %>
-	<%= f.input :password %>
-	<%= f.input :password_confirmation %>
+	<%= f.input :password, label: "New Password", autocomplete: "off" %>
+	<%= f.input :password_confirmation, label: "New Password Confirmation", autocomplete: "off" %>
 	<%= f.input :current_password %>
 
   <div class="form-actions">
