@@ -66,6 +66,6 @@ Foobar::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
   # Production -- Change it to the corresponding heroku title
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'mysterious-spire-8416.herokuapp.com' }
 
 end
