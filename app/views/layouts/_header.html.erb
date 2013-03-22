@@ -18,12 +18,14 @@
 					<li><%= link_to "Home", root_path %></li>
 				</ul>
         <ul class="nav pull-right">
-          <% if user_signed_in? %>
+          <% if user_signed_in? %> <!-- We want to show the edit profile for logged in users -->
             <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+						<!-- Logout link -->
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete  %></li>
-          <% else %>
+          <% else %> <!-- Not signed in -- Let's ask the user to sign in -->
   					<li><%= link_to "Login", new_user_session_path %></li>
             <% end %>
+					<!-- About foobar -->
 					<li><%= link_to "About", about_path %></li>
 				</ul>
       </div>
