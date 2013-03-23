@@ -1,4 +1,7 @@
 Foobar::Application.routes.draw do
+  resources :pins
+
+
   devise_for :users
 
   get 'about' => 'pages#about' # Set an about page and set it to pages/about within the folder structure
