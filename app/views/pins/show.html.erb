@@ -1,9 +1,13 @@
 <div class="row">
   <div class="span6 offset3">
     <div class="well">
+			<!-- Display image -->
+			<%= image_tag @pin.image %>
+			<!-- Display description -->
       <p>
         <%= @pin.description %>
       </p>
+			<!-- Display username -->
       <p>
         <%= @pin.user.name %>
       </p>

@@ -1,5 +1,12 @@
 <%= simple_form_for(@pin, html: {class: "form-horizontal"}) do |f| %>
   <%= f.error_notification %>
+	
+	<!-- Show validation error messages for file_size and content_type -->
+	<%= f.full_error :image_file_size, class:"alert alert-error" %>
+	<%= f.full_error :image_content_type, class:"alert alert-error" %>
+	
+	<%= f.input :image, label: "Upload an image" %> <!-- Simple_form gives us the ability to upload an image -->
+	<!-- TODO gurupanguji: Look for options under image for simple_form -->
   <%= f.input :description, as: :text, input_html: {rows: "3"} %>
 
   <div class="form-actions">

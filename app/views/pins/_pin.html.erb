@@ -1,5 +1,6 @@
 <tr>
-  <td><%= pin.description %></td>
+  <td><%= image_tag pin.image(:medium) %></td> <!-- Show the pin's image -->
+	<td><%= pin.description %></td>
   <td><%= link_to 'Show', pin %></td>
 	<!-- Only show for current user -->
 	<% if current_user == pin.user %>
