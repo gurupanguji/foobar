@@ -1,8 +1,13 @@
 class PinsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index] 
+  #function provided by Devise to make sure that only authenticates users have access to do anything with pins
+  
   # GET /pins
   # GET /pins.json
   def index
     @pins = Pin.all
+    # Get the data from Pin.all and pass it to the variable @pins
+    # @ => Global variable --> view has access to it.
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +19,7 @@ class PinsController < ApplicationController
   # GET /pins/1.json
   def show
     @pin = Pin.find(params[:id])
+    # Get the pin with the id - from the URL
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +30,8 @@ class PinsController < ApplicationController
   # GET /pins/new
   # GET /pins/new.json
   def new
-    @pin = Pin.new
+    @pin = current_user.pins.new
+    # Associates the pin with the user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +41,14 @@ class PinsController < ApplicationController
 
   # GET /pins/1/edit
   def edit
-    @pin = Pin.find(params[:id])
+    @pin = current_user.pins.find(params[:id])
   end
 
   # POST /pins
   # POST /pins.json
   def create
-    @pin = Pin.new(params[:pin])
+    @pin = current_user.pins.new(params[:pin])
+    # Associate the pin with the current_user
 
     respond_to do |format|
       if @pin.save
@@ -56,7 +64,7 @@ class PinsController < ApplicationController
   # PUT /pins/1
   # PUT /pins/1.json
   def update
-    @pin = Pin.find(params[:id])
+    @pin = current_users.pins.find(params[:id])
 
     respond_to do |format|
       if @pin.update_attributes(params[:pin])
@@ -72,7 +80,7 @@ class PinsController < ApplicationController
   # DELETE /pins/1
   # DELETE /pins/1.json
   def destroy
-    @pin = Pin.find(params[:id])
+    @pin = current_user.pins.find(params[:id])
     @pin.destroy
 
     respond_to do |format|
