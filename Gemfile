@@ -5,6 +5,7 @@ gem 'jquery-rails'
 gem 'devise' # This is for user management
 gem 'simple_form' # for good looking and easy to create forms
 gem "paperclip", "~> 3.0" # adding paperclip for image uploads
+gem 'aws-sdk' # Add AWS gem
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

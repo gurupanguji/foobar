@@ -11,6 +11,18 @@ Foobar::Application.configure do
   # Production -- Change it to the corresponding heroku title
   config.action_mailer.default_url_options = { :host => 'http://mysterious-spire-8416.herokuapp.com' }
 
+  # Connecting paperclip and heroku to S3. 
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['AWS_BUCKET'],
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
+  # Make sure that we manage heroku config with the environment variables
+  # https://devcenter.heroku.com/articles/paperclip-s3
+
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
 
