@@ -5,7 +5,7 @@ Foobar::Application.routes.draw do
   devise_for :users
 
   get 'about' => 'pages#about' # Set an about page and set it to pages/about within the folder structure
-  root :to => 'pages#home' # Set route
+  root :to => 'pins#index' # Set root to show the pins
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

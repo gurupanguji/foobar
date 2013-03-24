@@ -14,9 +14,6 @@
       <!-- Everything you want hidden at 940px or less, place within here -->
       <div class="nav-collapse collapse"> <!-- Part of bootstrap -->
         <!-- .nav, .navbar-search, .navbar-form, etc -->
-				<ul class="nav">
-					<li><%= link_to "Home", root_path %></li>
-				</ul>
         <ul class="nav pull-right">
           <% if user_signed_in? %> <!-- We want to show the edit profile for logged in users -->
             <li><%= link_to "+", new_pin_path, class: "btn" %></li>
