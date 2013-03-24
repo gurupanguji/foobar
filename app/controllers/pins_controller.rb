@@ -5,7 +5,7 @@ class PinsController < ApplicationController
   # GET /pins
   # GET /pins.json
   def index
-    @pins = Pin.all
+    @pins = Pin.order ("created_at desc")
     # Get the data from Pin.all and pass it to the variable @pins
     # @ => Global variable --> view has access to it.
 

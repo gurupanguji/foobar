@@ -3,9 +3,8 @@ class Pin < ActiveRecord::Base
   attr_accessible :description, :image #can now add an image to the pin
 
   # Associations
-  # Associate with user - n:1 relationship
-  belongs_to :user
-  has_attached_file :image, styles: { medium: "320x240>"}
+  belongs_to :user # Associate with user - n:1 relationship
+  has_attached_file :image, styles: { medium: "320x240>"} # Image has two attached files of original and medium
   
   # Validations
   validates :description, presence: true

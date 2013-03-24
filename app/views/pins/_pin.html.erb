@@ -1,10 +1,18 @@
-<tr>
-  <td><%= image_tag pin.image(:medium) %></td> <!-- Show the pin's image -->
-	<td><%= pin.description %></td>
-  <td><%= link_to 'Show', pin %></td>
-	<!-- Only show for current user -->
-	<% if current_user == pin.user %>
-	  <td><%= link_to 'Edit', edit_pin_path(pin) %></td> <!-- edit path needs the pin-id -->
-	  <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	<% end %>
-</tr>
+<div class="box">
+	<%= link_to (image_tag pin.image(:medium)), pin %> <!-- Show the pin's image and call show action by linking it -->
+	<p class="description">
+		<%= pin.description %>
+	</p>
+	<p>
+		<strong>
+			Posted by <%= pin.user.name %>
+		</strong>
+	</p>
+	<p>
+		<!-- Only show for current user -->
+		<% if current_user == pin.user %>
+			<%= link_to 'Edit', edit_pin_path(pin) %> <!-- edit path needs the pin-id --> | 
+		  <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% end %>
+	</p>
+</div>
